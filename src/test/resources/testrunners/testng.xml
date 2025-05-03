@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="appName App Test Regression Suite" thread-count="4" parallel="tests" verbose="4">
+
+	<listeners>
+		<listener 
+		class-name="com.qa.appName.listeners.ExtentReportListener"/> 
+		<listener
+			class-name="com.qa.appName.listeners.TestAllureListener" /> 
+			<!-- 
+				AFTER INSTALLING ALLURE NAVIATE TO PROJECT DIRECTORY
+				PS C:\Users\satya> cd D:\SatyaWS\FWjan2025POMSeries
+				
+				THEN RUN BELOW COMMANT TO CHECK SUB PACKAGES:
+				PS D:\SatyaWS\FWjan2025POMSeries> dir
+
+
+    			Directory: D:\SatyaWS\FWjan2025POMSeries
+
+
+					Mode                 LastWriteTime         Length Name
+				               
+					d-        		24-01-2025     15:18                .mvn
+					d-        		24-01-2025     15:18                .settings
+					d-        		02-05-2025     16:52                allure-results
+					d-        		01-05-2025     13:40                reports
+					d-        		02-05-2025     16:52                screenshot
+					d-        		24-01-2025     15:18                src
+					d-        		01-05-2025     13:40                target
+					d-        		02-05-2025     16:52                test-output
+					-a-        		01-05-2025     11:54           1609 .classpath
+					-a-        		24-01-2025     15:18            570 .project
+					-a-        		02-05-2025     16:37           4397 pom.xml
+
+					THEN RUN BELOW COMMAND TO GENERATE ALLURE REPORT:
+					PS D:\SatyaWS\FWjan2025POMSeries> allure serve allure-results
+					Generating report to temp directory...
+					Report successfully generated to C:\Users\satya\AppData\Local\Temp\3565908504792223657\allure-report
+					Starting web server...
+					Server started at <http://127.0.0.1:54486>. Press <Ctrl+C> to exit
+					
+					NOW WEB BROWSER WILL OPEN WITH ALLURE RESULT! IT'S A FANTASTIC REPORT!
+					PRESS CTRL+C, 
+					Shutting down...
+					Terminate batch job (Y/N)? Y
+					PS D:\SatyaWS\FWjan2025POMSeries>
+					
+			-->
+	</listeners>
+
+
+
+<!--
+==================================================================
+🧪 TestNG XML Execution Control: Include and Exclude Methods
+==================================================================
+
+This test suite is configured to run specific test methods from the 
+LoginPageTest class using <methods> tag inside <class>.
+
+✅ INCLUDED METHODS:
+===================
+1. loginPageTitleTest
+2. loginPageUrlTest
+3. dologinTest
+
+❌ EXCLUDED METHOD:
+==================
+1. forgotPwdLinkTest
+
+🧠 EXECUTION RULES:
+==================
+- Only the test methods listed inside <include> will be executed.
+- Even if a method is marked @Test(enabled=true), if it is excluded in <exclude>, it will be skipped.
+- If both <include> and <exclude> are used, TestNG gives priority to <exclude>.
+
+📝 FINAL EXECUTION STATUS:
+=========================
+✔ loginPageTitleTest  → Executed
+✔ loginPageUrlTest    → Executed
+✘ forgotPwdLinkTest   → Skipped (excluded explicitly)
+✔ dologinTest         → Executed
+
+Note: The priority or @Test(enabled = true) inside the test class 
+has no effect if methods are excluded here.
+
+-->
+	<test name="Login Page Test">
+  <classes>
+    <class name="com.qa.appName.test.LoginPageTest">
+      <methods>
+        <include name="loginPageTitleTest" />
+        <include name="loginPageUrlTest" />
+        <exclude name="forgotPwdLinkTest" />
+        <include name="dologinTest" />
+      </methods>
+    </class>
+  </classes>
+</test>
+
+<!--	
+	 <test name = "Accounts Page Test">
+	<classes>
+		<class name="com.qa.appName.test.AccountsPageTest" />
+	</classes>
+	</test>
+	
+	<test name = "Product info Page Test">
+	<classes>
+		<class name="com.qa.appName.test.ProductInfoPageTest" />
+	</classes>
+	</test>
+	
+	<test name = "Register  Page Test">
+	<classes>
+		<class name="com.qa.appName.test.RegisterPageTest" />
+	</classes>
+	</test> -->
+	
+	
+	
+	
+</suite>

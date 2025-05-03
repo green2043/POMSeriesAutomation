@@ -38,6 +38,7 @@ public class LoginPage {
 	private By amazonSignInText = By.xpath("//h1[contains(text(),'Sign in')]");
 	private static final String SECRET_KEY = "FWautomtion12345";
 	//private static final String SECRET_KEY_FOR_AMAZON = "AmazonTest123456";
+	private String  demo = "demo for git";
 	
 	private By resterLink = By.linkText("Register");
 	

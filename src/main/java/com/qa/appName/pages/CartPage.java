@@ -1,7 +1,18 @@
 package com.qa.appName.pages;
 
+import org.openqa.selenium.By;
+
 public class CartPage {
 	
-	String cart = "mackbook";
+	By cart = By.id("mackbook");
+	
+	public CartPage() {
+		
+	}
+	
+	public void addToCart() {
+		
+	}
+	
 
 }

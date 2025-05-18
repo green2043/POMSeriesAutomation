@@ -166,7 +166,7 @@ ThreadLocal solves this problem by providing separate WebDriver instances for ea
 		
 		// Uncomment one of the URLs below to hardcode a URL instead of using the properties file.
 		// driver.get(prop.getProperty("url"));
-		getDriver().get(prop.getProperty("urlForNaveenSApp"));
+		getDriver().get(prop.getProperty("url"));
 		
 		// getDriver().get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 		// getDriver().get("https://www.amazon.com/gp/sign-in.html");
@@ -186,24 +186,89 @@ ThreadLocal solves this problem by providing separate WebDriver instances for ea
 	public Properties initializeProp() {
 	    // Create a new Properties object to hold configuration properties.
 	    prop = new Properties();
+	    FileInputStream ip =null;
+	    
+	    //mvn clean install -Denv = "prod"
+	    //mvn clean install
+	    
+	    String envName= System.getProperty("env");
+	    System.out.println("------>Running test cases on environment-----> " + envName);
+	    
+	    if(envName==null) {
+	    	System.out.println("No env is given...hence running it on the QA env....");
+	    	try {
+	    		ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+	    		
+			} catch (FileNotFoundException e) 
+	    	{
+				e.printStackTrace();
+			}
+	
+	    } else {
+	    	
 	    try {
-	        // Create a FileInputStream object to connect to the properties file.
-	        FileInputStream ip = new FileInputStream("./src/test/resources/config/config.properties");
-	        // Load the properties from the file into the Properties object.
-	        prop.load(ip);
-	    } catch (FileNotFoundException e) {
-	        // Handle the case where the properties file is not found.
-	        e.printStackTrace();
-	    } catch (IOException e) {
-	        // Handle other input/output exceptions.
-	        e.printStackTrace();
+	    	switch (envName.toLowerCase()) {
+			case "qa": 
+				ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+				break;
+			case "dev": 
+				ip = new FileInputStream("./src/test/resources/config/dev.config.properties");
+				break;
+			case "stage": 
+				ip = new FileInputStream("./src/test/resources/config/stage.config.properties");
+				break;
+			case "uat": 
+				ip = new FileInputStream("./src/test/resources/config/uat.config.properties");
+				break;
+			case "prod": 
+				ip = new FileInputStream("./src/test/resources/config/prod.config.properties");
+				break;
+				
+				default:
+					System.out.println("Please print the right env name....." + envName);
+					break;
+			
+	    	}
+	    	
+	    }
+	    	catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
 	    }
 	    
+	    
+	    
+	    
+//	    try {
+//	        // Create a FileInputStream object to connect to the properties file.
+//	        FileInputStream ip = new FileInputStream("./src/test/resources/config/config.properties");
+//	        // Load the properties from the file into the Properties object.
+//	        prop.load(ip);
+//	    } catch (FileNotFoundException e) {
+//	        // Handle the case where the properties file is not found.
+//	        e.printStackTrace();
+//	    } catch (IOException e) {
+//	        // Handle other input/output exceptions.
+//	        e.printStackTrace();
+//	    }
+	    
 	    //System.out.println("Loaded properties: " + prop);
+	    
+	    try {
+			prop.load(ip);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	    
+	    
 	    // Return the loaded Properties object.
 	    return prop;
 	}
 	
+	
+	/*
+	 * take screenshot
+	 * */
 
 	public static String getScreenshot() {
 

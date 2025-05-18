@@ -5,7 +5,7 @@ import java.util.List;
 
 public class AppConstants {
 
-	public static final String LOGIN_PAGE_TITLE = "Account Login11";
+	public static final String LOGIN_PAGE_TITLE = "Account Login";
 	public static final String AMAZON_LOGIN_PAGE_TITLE = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
 	public static final String AMAZON_PAGE_TITLE = "Account Login";
 	public static final String LOGIN_PAGE_FRACTION_URL = "route=account/login";

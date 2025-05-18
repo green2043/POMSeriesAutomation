@@ -88,14 +88,14 @@ has no effect if methods are excluded here.
 -->
 	<test name="Login Page Test">
   <classes>
-    <class name="com.qa.appName.test.LoginPageTest">
-      <methods>
+    <class name="com.qa.appName.test.LoginPageTest" >
+    <!--  <methods>
         <include name="loginPageTitleTest" />
         <include name="loginPageUrlTest" />
         <exclude name="forgotPwdLinkTest" />
-        <include name="dologinTest" />
-      </methods>
-    </class>
+        <include name="dologinTest" /> 
+      </methods> -->
+      </class>
   </classes>
 </test>
 

@@ -47,7 +47,7 @@ Would you like an example of how to integrate these in your tests? 🚀
  */
 
 
-@Epic("Epis - 100: Design Login page for open cart shopping application")
+@Epic("Epic - 100: Design Login page for open cart shopping application")
 @Story("USR-101: Create login page functionality for open cart login page")
 public class LoginPageTest extends BaseTest {
 	
@@ -136,7 +136,13 @@ Allure provides different severity levels to help categorize test cases:
 //	    String decryptedPassword = loginPage.decrypt(encryptedPassword);  
 //	    accPage = loginPage.doLogin("satyasahoo2043@gmail.com", decryptedPassword);  // Pass the decrypted password
 //		accPage = loginPage.doLogin("satyasahoo2043@gmail.com");  
-	    accPage = loginPage.doLogin(prop.getProperty("username").trim(),"");  
+		
+		
+		String username = prop.getProperty("username").trim();
+	    String password = prop.getProperty("password").trim();
+	    
+	    System.out.println(username+"  "+password);
+	    accPage = loginPage.doLogin(username,password);  
 		
 		Assert.assertTrue(accPage.isLogoutExist(),AppErrors.LOGIN_UNSUCCESSFUL);
 	}

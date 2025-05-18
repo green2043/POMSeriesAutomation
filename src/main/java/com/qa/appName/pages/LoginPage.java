@@ -115,10 +115,10 @@ public class LoginPage {
 		//System.out.println("Creds are : " + uname + ":" + pwd);
 		 elementUtil.readProp();
 		
-		 String encryptedPassword = elementUtil.getEncryptedPassword();  // Get the encrypted password
-	     String decryptedPassword = decrypt(encryptedPassword); // Decrypt the password
-	     pwd = decryptedPassword;
-
+//		 String encryptedPassword = elementUtil.getEncryptedPassword();  // Get the encrypted password
+//	     String decryptedPassword = decrypt(encryptedPassword); // Decrypt the password
+	    // pwd = decryptedPassword;
+		// String passwordFromProp = elementUtil.prop.getProperty("password").trim();
 		
 		elementUtil.waitForElementVisible(emailId, TimeUtil.DEFAULT_TIME_OUT).clear();
 		elementUtil.doSendKeys(emailId, uname);

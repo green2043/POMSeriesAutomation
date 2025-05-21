@@ -99,19 +99,19 @@ has no effect if methods are excluded here.
   </classes>
 </test>
 
-<!--	
+	
 	 <test name = "Accounts Page Test">
 	<classes>
 		<class name="com.qa.appName.test.AccountsPageTest" />
 	</classes>
 	</test>
-	
+
 	<test name = "Product info Page Test">
 	<classes>
 		<class name="com.qa.appName.test.ProductInfoPageTest" />
 	</classes>
 	</test>
-	
+<!--		
 	<test name = "Register  Page Test">
 	<classes>
 		<class name="com.qa.appName.test.RegisterPageTest" />

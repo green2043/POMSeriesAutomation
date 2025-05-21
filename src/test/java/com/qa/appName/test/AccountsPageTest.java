@@ -21,7 +21,12 @@ public class AccountsPageTest extends BaseTest {
 	public void accountSetUp() throws InterruptedException {
 
 //		accPage = loginPage.doLogin("satyasahoo2043@gmail.com");
-		accPage = loginPage.doLogin(prop.getProperty("username").trim(),"");
+		String username = prop.getProperty("username").trim();
+	    String password = prop.getProperty("password").trim();
+	    
+	    System.out.println(username+"  "+password);
+	    accPage = loginPage.doLogin(username,password); 
+		
 		Thread.sleep(2000);
 
 	}

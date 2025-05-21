@@ -126,6 +126,7 @@ ThreadLocal solves this problem by providing separate WebDriver instances for ea
 	public WebDriver initDriver(Properties prop) {
 		// Get the browser name from the properties file and remove extra spaces.
 		String browserName = prop.getProperty("browser").trim();
+//		String browserName = System.getProperty("browser"); //CMD line argument
 		
 		// Print the browser name for debugging purposes.
 		System.out.println("Browser name is: " + browserName);
@@ -183,7 +184,7 @@ ThreadLocal solves this problem by providing separate WebDriver instances for ea
 	}
 	
 
-	public Properties initializeProp() {
+	public Properties initializeProp()  {
 	    // Create a new Properties object to hold configuration properties.
 	    prop = new Properties();
 	    FileInputStream ip =null;
@@ -191,7 +192,8 @@ ThreadLocal solves this problem by providing separate WebDriver instances for ea
 	    //mvn clean install -Denv = "prod"
 	    //mvn clean install
 	    
-	    String envName= System.getProperty("env");
+	    String envName= System.getProperty("env"); //CMD line argument
+	    
 	    System.out.println("------>Running test cases on environment-----> " + envName);
 	    
 	    if(envName==null) {
@@ -253,6 +255,10 @@ ThreadLocal solves this problem by providing separate WebDriver instances for ea
 //	    }
 	    
 	    //System.out.println("Loaded properties: " + prop);
+	    
+	 
+
+
 	    
 	    try {
 			prop.load(ip);
